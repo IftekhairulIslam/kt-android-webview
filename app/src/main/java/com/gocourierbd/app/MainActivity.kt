@@ -1,4 +1,4 @@
-package com.example.myapplication
+package com.gocourierbd.app
 
 import android.annotation.SuppressLint
 import android.app.ProgressDialog
