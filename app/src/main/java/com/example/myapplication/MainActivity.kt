@@ -1,6 +1,8 @@
 package com.example.myapplication
 
 import android.annotation.SuppressLint
+import android.app.ProgressDialog
+import android.graphics.Bitmap
 import android.os.Bundle
 import android.view.ViewGroup
 import android.webkit.CookieManager
@@ -13,18 +15,24 @@ import androidx.compose.ui.viewinterop.AndroidView
 
 class MainActivity : ComponentActivity() {
     private val url: String = "https://app.landknock.com/"
+    private lateinit var progressDialog: ProgressDialog
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        progressDialog = ProgressDialog(this)
+        progressDialog.setMessage("Loading...")
+        progressDialog.setCancelable(false)
+        progressDialog.show()
+
         setContent {
-            WebViewPage(url)
+            WebViewPage(url, progressDialog)
         }
     }
 }
 
 @SuppressLint("SetJavaScriptEnabled")
 @Composable
-fun WebViewPage(url: String){
+fun WebViewPage(url: String, progressDialog: ProgressDialog){
     AndroidView(factory = {
         WebView(it).apply {
             layoutParams = ViewGroup.LayoutParams(
@@ -32,7 +40,17 @@ fun WebViewPage(url: String){
                 ViewGroup.LayoutParams.MATCH_PARENT
             )
             settings.javaScriptEnabled = true
-            webViewClient = WebViewClient()
+            webViewClient = object: WebViewClient() {
+                override fun onPageStarted(view: WebView?, url: String?, favicon: Bitmap?) {
+                    super.onPageStarted(view, url, favicon)
+                    progressDialog.show()
+                }
+
+                override fun onPageFinished(view: WebView?, url: String?) {
+                    super.onPageFinished(view, url)
+                    progressDialog.dismiss()
+                }
+            }
 
             // Enable cookie handling
             val cookieManager = CookieManager.getInstance()
