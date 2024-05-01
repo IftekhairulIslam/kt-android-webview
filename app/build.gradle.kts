@@ -4,15 +4,15 @@ plugins {
 }
 
 android {
-    namespace = "com.gocourierbd.app"
+    namespace = "com.gocourierbd.hero"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.gocourierbd.app"
+        applicationId = "com.gocourierbd.hero"
         minSdk = 24
         targetSdk = 34
-        versionCode = 4
-        versionName = "1.4"
+        versionCode = 1
+        versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {

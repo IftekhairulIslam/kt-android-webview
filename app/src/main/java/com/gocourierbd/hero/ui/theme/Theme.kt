@@ -1,4 +1,4 @@
-package com.gocourierbd.app.ui.theme
+package com.gocourierbd.hero.ui.theme
 
 import android.app.Activity
 import android.os.Build

@@ -1,4 +1,4 @@
-package com.gocourierbd.app.ui.theme
+package com.gocourierbd.hero.ui.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle

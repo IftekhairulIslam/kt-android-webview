@@ -1,4 +1,4 @@
-package com.gocourierbd.app
+package com.gocourierbd.hero
 
 import org.junit.Test
 

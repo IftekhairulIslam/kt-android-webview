@@ -1,4 +1,4 @@
-package com.gocourierbd.app
+package com.gocourierbd.hero
 
 import android.annotation.SuppressLint
 import android.app.ProgressDialog
@@ -14,7 +14,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.viewinterop.AndroidView
 
 class MainActivity : ComponentActivity() {
-    private val url: String = "https://client.landknock.com/gocourier"
+    private val url: String = "https://app.landknock.com"
     private lateinit var progressDialog: ProgressDialog
 
     override fun onCreate(savedInstanceState: Bundle?) {
